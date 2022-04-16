@@ -1,4 +1,4 @@
-;;; eping.el --- Ping websites to check internet connectivity -*- lexical-binding: t -*-
+;;; eping.el --- Ping websites to check internet connectivity  -*- lexical-binding: t -*-
 
 ;; Copyright © 2020 Sean Hutchings <seanhut@yandex.com>
 ;; Copyright © 2022 Jen-Chieh Shen <jcs090218@gmail.com>
@@ -9,7 +9,7 @@
 ;; Keywords: comm, processes, terminals, unix
 ;; Package-Requires: ((emacs "25.1"))
 ;; Version: 0.1.1-git
-;; Homepage: https://github.com/sean-hut/eping
+;; Homepage: https://github.com/elp-revive/eping
 ;; License: BSD Zero Clause License (SPDX: 0BSD)
 
 ;; Permission to use, copy, modify, and/or distribute this software
@@ -30,8 +30,6 @@
 
 ;; Ping websites to check internet connectivity.
 ;;
-;; Repository: https://github.com/sean-hut/eping
-;;
 ;; Documentation: https://sean-hut.github.io/eping/
 
 ;;; Code:
@@ -46,6 +44,7 @@
   "List of how many times to ping the domain.
 Eping will present this as list to select from for users.")
 
+;;;###autoload
 (defun eping (domain number-pings &optional speak)
   "Check internet connectivity with ping.
 
@@ -58,9 +57,9 @@ With prefix arg SPEAK, the output is spoken by espeak."
          current-prefix-arg))
 
   (let ((command (list "ping" (if (eq system-type 'windows-nt)
-				                  "-n"
-				                "-c")
-		               number-pings domain)))
+                                  "-n"
+                                "-c")
+                       number-pings domain)))
     (make-process :name "eping"
                   :command command
                   :sentinel (if speak
