@@ -23,6 +23,10 @@ This project uses the [ISO 8601 date format][iso] of (YYYY-MM-DD).
 
 ## [Unreleased]
 
+### Fixed
+- Support windows ping.exe (a45a33122b49f26a47fbe1afa924cc9db4b85e74)
+- Add CI (3e4f64aee09bcbce741cac020b5fb0409fb89ed0)
+
 ## [0.1.1] - 2020-10-19
 
 ### Fixed
