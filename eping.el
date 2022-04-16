@@ -8,7 +8,7 @@
 ;; Created: 2020-10-16
 ;; Keywords: comm, processes, terminals, unix
 ;; Package-Requires: ((emacs "25.1"))
-;; Version: 0.1.2
+;; Version: 0.1.1-git
 ;; Homepage: https://github.com/elp-revive/eping
 ;; License: BSD Zero Clause License (SPDX: 0BSD)
 
