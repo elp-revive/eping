@@ -1,9 +1,10 @@
 ;;; eping.el --- Ping websites to check internet connectivity -*- lexical-binding: t -*-
 
 ;; Copyright © 2020 Sean Hutchings <seanhut@yandex.com>
+;; Copyright © 2022 Jen-Chieh Shen <jcs090218@gmail.com>
 
 ;; Author: Sean Hutchings <seanhut@yandex.com>
-;; Maintainer: Sean Hutchings <seanhut@yandex.com>
+;; Maintainer: Jen-Chieh Shen <jcs090218@gmail.com>
 ;; Created: 2020-10-16
 ;; Keywords: comm, processes, terminals, unix
 ;; Package-Requires: ((emacs "25.1"))
