@@ -1,7 +1,15 @@
-# Ignore compiled Emacs lisp.
-eping.elc
-flycheck_eping.elc
+# ignore these directories
+/.git
+/recipes
+/test
 
-# Ignore autoloaded elisp.
-eping-autoloads.el
-eping-autoloads.el~
+# ignore generated files
+*.elc
+
+# eask packages
+.eask/
+dist/
+
+# packaging
+*-autoloads.el
+*-pkg.el
