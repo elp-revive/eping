@@ -1,7 +1,11 @@
-# Eping
+[![License](https://img.shields.io/badge/License-BSD_0--Clause-green.svg)](https://opensource.org/licenses/0BSD)
+[![JCS-ELPA](https://raw.githubusercontent.com/jcs-emacs/jcs-elpa/master/badges/v/origami.svg)](https://jcs-emacs.github.io/jcs-elpa/#/origami)
 
-**Eping** is an [Emacs][emacs] package that checks internet
-connectivity using `ping`.
+# eping
+
+[![CI](https://github.com/elp-revive/eping/actions/workflows/test.yml/badge.svg)](https://github.com/elp-revive/eping/actions/workflows/test.yml)
+
+**eping** is an [Emacs][emacs] package that checks internet connectivity using `ping`.
 
 [emacs]: <https://www.gnu.org/software/emacs/>
 
