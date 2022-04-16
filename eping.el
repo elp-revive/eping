@@ -44,6 +44,45 @@
   "List of how many times to ping the domain.
 Eping will present this as list to select from for users.")
 
+(defcustom eping-complete-hook nil
+  "Hook runs after eping is completed."
+  :type 'hook
+  :group 'eping)
+
+(defcustom eping-success-hook nil
+  "Hook runs after eping is succeed."
+  :type 'hook
+  :group 'eping)
+
+(defcustom eping-fail-hook nil
+  "Hook runs after eping is failed."
+  :type 'hook
+  :group 'eping)
+
+(defun eping--sentinel-minibuffer-output (process event)
+  "Output the process name and event with minibuffer.
+PROCESS is the process the sentinel is watching.
+EVENT is the processes change event."
+  (message "%s %s" process (string-trim-right event))
+  (eping--run-callback event))
+
+(defun eping--sentinel-espeak-output (process event)
+  "Output the process name and event with eSpeak.
+PROCESS is the process the sentinel is watching.
+EVENT is the processes change event."
+  (let* ((espeak-text (format "%s %s" process event))
+         (command (list "espeak"  espeak-text)))
+    (make-process :name "eping-sentinel-espeak-output"
+                  :command command))
+  (eping--run-callback event))
+
+(defun eping--run-callback (event)
+  "Execute callback from EVENT."
+  (if (string-match-p "finished" event)
+      (run-hooks 'eping-success-hook)
+    (run-hooks 'eping-fail-hook))
+  (run-hooks 'eping-completed-hook))
+
 ;;;###autoload
 (defun eping (domain number-pings &optional speak)
   "Check internet connectivity with ping.
@@ -56,30 +95,16 @@ With prefix arg SPEAK, the output is spoken by espeak."
          (completing-read "Number of pings: " eping-number-pings-options nil t)
          current-prefix-arg))
 
-  (let ((command (list "ping" (if (eq system-type 'windows-nt)
-                                  "-n"
-                                "-c")
-                       number-pings domain)))
+  (let* ((number-pings (format "%s" number-pings))  ; ensure string
+         (command (list "ping" (if (eq system-type 'windows-nt)
+                                   "-n"
+                                 "-c")
+                        number-pings domain)))
     (make-process :name "eping"
                   :command command
                   :sentinel (if speak
                                 'eping--sentinel-espeak-output
                               'eping--sentinel-minibuffer-output))))
-
-(defun eping--sentinel-minibuffer-output (process event)
-  "Output the process name and event with minibuffer.
-PROCESS is the process the sentinel is watching.
-EVENT is the processes change event."
-  (message "%s %s" process (string-trim-right event)))
-
-(defun eping--sentinel-espeak-output (process event)
-  "Output the process name and event with eSpeak.
-PROCESS is the process the sentinel is watching.
-EVENT is the processes change event."
-  (let* ((espeak-text (format "%s %s" process event))
-         (command (list "espeak"  espeak-text)))
-    (make-process :name "eping-sentinel-espeak-output"
-                  :command command)))
 
 (provide 'eping)
 ;;; eping.el ends here
