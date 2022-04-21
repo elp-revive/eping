@@ -1,5 +1,5 @@
 [![License](https://img.shields.io/badge/License-BSD_0--Clause-green.svg)](https://opensource.org/licenses/0BSD)
-[![JCS-ELPA](https://raw.githubusercontent.com/jcs-emacs/jcs-elpa/master/badges/v/origami.svg)](https://jcs-emacs.github.io/jcs-elpa/#/origami)
+[![JCS-ELPA](https://raw.githubusercontent.com/jcs-emacs/badges/master/elpa/v/eping.svg)](https://jcs-emacs.github.io/jcs-elpa/#/eping)
 
 # eping
 
