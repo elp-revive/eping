@@ -2,6 +2,9 @@
          "0.1.1"
          "Ping websites to check internet connectivity")
 
+(website-url "https://github.com/elp-revive/eping")
+(keywords "comm" "processes" "terminals" "unix")
+
 (package-file "eping.el")
 
 (source "melpa")
