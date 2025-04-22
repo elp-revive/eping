@@ -1,3 +1,5 @@
+;; -*- mode: eask; lexical-binding: t -*-
+
 (package "eping"
          "0.1.1"
          "Ping websites to check internet connectivity")
